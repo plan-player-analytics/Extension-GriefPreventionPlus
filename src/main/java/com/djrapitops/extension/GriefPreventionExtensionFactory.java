@@ -31,11 +31,11 @@ import java.util.Optional;
  *
  * @author Rsl1122
  */
-public class NewExtensionFactory {
+public class GriefPreventionExtensionFactory {
 
     private boolean isAvailable() {
         try {
-            Class.forName("");
+            Class.forName("me.ryanhamshire.GriefPrevention.GriefPrevention");
             return true;
         } catch (ClassNotFoundException e) {
             return false;
@@ -43,8 +43,12 @@ public class NewExtensionFactory {
     }
 
     public Optional<DataExtension> createExtension() {
-        if (isAvailable()) {
-            return Optional.of(new NewExtension());
+        try {
+            if (isAvailable()) {
+                return Optional.of(new GriefPreventionExtension());
+            }
+        } catch (IllegalStateException noDataStore) {
+            /* Return below. */
         }
         return Optional.empty();
     }
