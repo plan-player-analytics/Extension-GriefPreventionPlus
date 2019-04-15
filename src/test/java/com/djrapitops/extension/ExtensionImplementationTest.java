@@ -39,7 +39,7 @@ class ExtensionImplementationTest {
 
     @BeforeEach
     void prepareExtractor() {
-        DataExtension extension = new GriefPreventionExtension();
+        DataExtension extension = new GriefPreventionPlusExtension();
         extractor = new ExtensionExtractor(extension);
     }
 

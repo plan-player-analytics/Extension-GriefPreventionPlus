@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.djrapitops</groupId>
-    <artifactId>Extension-GriefPrevention</artifactId>
-    <version>16.11.6-R0.1</version>
+    <artifactId>Extension-GriefPreventionPlus</artifactId>
+    <version>13.3-R0.1</version>
     <build>
         <plugins>
             <plugin>
@@ -30,12 +30,6 @@
             <id>vault-repo</id> <!-- Essentials build repository since Vault repo goes down often. -->
             <url>https://ci.ender.zone/plugin/repository/everything/</url>
         </repository>
-
-        <repository>
-            <id>jitpack.io</id> <!-- GriefPrevention repo -->
-            <url>https://jitpack.io</url>
-        </repository>
-
         <!-- Platforms -->
 
         <repository>
@@ -66,9 +60,9 @@
 
         <!-- Plugin API Dependency -->
         <dependency>
-            <groupId>com.github.TechFortress</groupId>
-            <artifactId>GriefPrevention</artifactId>
-            <version>16.11.6</version>
+            <groupId>net.kaikk.mc</groupId>
+            <artifactId>GriefPreventionPlus</artifactId>
+            <version>13.3</version>
             <scope>provided</scope>
         </dependency>
 
@@ -123,7 +117,7 @@
         <repository>
             <id>bintray-rsl1122-Plan-repository</id>
             <name>rsl1122-Plan-repository</name>
-            <url>https://api.bintray.com/maven/rsl1122/Plan-repository/Extension-GriefPrevention/;publish=1</url>
+            <url>https://api.bintray.com/maven/rsl1122/Plan-repository/Extension-GriefPreventionPlus/;publish=1</url>
         </repository>
     </distributionManagement>
 </project>

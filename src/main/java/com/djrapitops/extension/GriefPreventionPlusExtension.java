@@ -30,9 +30,9 @@ import com.djrapitops.plan.extension.icon.Color;
 import com.djrapitops.plan.extension.icon.Family;
 import com.djrapitops.plan.extension.icon.Icon;
 import com.djrapitops.plan.extension.table.Table;
-import me.ryanhamshire.GriefPrevention.Claim;
-import me.ryanhamshire.GriefPrevention.DataStore;
-import me.ryanhamshire.GriefPrevention.GriefPrevention;
+import net.kaikk.mc.gpp.Claim;
+import net.kaikk.mc.gpp.DataStore;
+import net.kaikk.mc.gpp.GriefPreventionPlus;
 import org.bukkit.Location;
 
 import java.util.Objects;
@@ -52,12 +52,12 @@ import static org.bukkit.plugin.java.JavaPlugin.getPlugin;
         iconName = "map-marker",
         elementOrder = {ElementOrder.TABLE}
 )
-public class GriefPreventionExtension implements DataExtension {
+public class GriefPreventionPlusExtension implements DataExtension {
 
     private DataStore dataStore;
 
-    public GriefPreventionExtension() {
-        dataStore = getPlugin(GriefPrevention.class).dataStore;
+    public GriefPreventionPlusExtension() {
+        dataStore = getPlugin(GriefPreventionPlus.class).getDataStore();
         if (dataStore == null) {
             throw new IllegalStateException();
         }
@@ -68,17 +68,6 @@ public class GriefPreventionExtension implements DataExtension {
         return new CallEvents[]{
                 CallEvents.PLAYER_LEAVE
         };
-    }
-
-    @BooleanProvider(
-            text = "SoftMuted",
-            description = "Are the player's messages muted for others, but shown to them",
-            iconName = "bell-slash",
-            iconColor = Color.DEEP_ORANGE,
-            iconFamily = Family.REGULAR
-    )
-    public boolean isSoftMuted(UUID playerUUID) {
-        return dataStore.isSoftMuted(playerUUID);
     }
 
     @NumberProvider(
@@ -105,9 +94,9 @@ public class GriefPreventionExtension implements DataExtension {
     }
 
     private Stream<Claim> getClaimsOf(UUID playerUUID) {
-        return dataStore.getClaims().stream()
+        return dataStore.getClaims().values().stream()
                 .filter(Objects::nonNull)
-                .filter(claim -> playerUUID.equals(claim.ownerID));
+                .filter(claim -> playerUUID.equals(claim.getOwnerID()));
     }
 
     @TableProvider(tableColor = Color.BLUE_GREY)
