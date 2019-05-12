@@ -85,7 +85,8 @@ public class GriefPreventionPlusExtension implements DataExtension {
             description = "How large area the player has claimed",
             iconName = "map",
             iconColor = Color.BLUE_GREY,
-            iconFamily = Family.REGULAR
+            iconFamily = Family.REGULAR,
+            showInPlayerTable = true
     )
     public long claimedArea(UUID playerUUID) {
         return getClaimsOf(playerUUID)

@@ -6,7 +6,7 @@
 
     <groupId>com.djrapitops</groupId>
     <artifactId>Extension-GriefPreventionPlus</artifactId>
-    <version>13.3-R0.1</version>
+    <version>13.3-R0.2</version>
     <build>
         <plugins>
             <plugin>
@@ -54,7 +54,7 @@
         <dependency> <!-- Plan API -->
             <groupId>com.djrapitops</groupId>
             <artifactId>Plan-api</artifactId>
-            <version>0.0.4</version>
+            <version>0.0.5</version>
             <scope>provided</scope>
         </dependency>
 
